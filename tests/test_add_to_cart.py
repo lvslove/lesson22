@@ -15,7 +15,6 @@ from pages.inventory_page import InventoryPage
 
 def test_add_to_cart(driver, username, password):
     login_page = LoginPage(driver)
-    login_page.get_login_page()
     login_page.valid_login(username, password)
     inventory_page = InventoryPage(driver)
     inventory_page.add_to_backpack_cart()
