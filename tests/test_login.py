@@ -1,6 +1,7 @@
 import pytest
 from lesson22.pages.login_page import LoginPage
 
+
 @pytest.mark.parametrize(
     ("name", "password"), [
         ('standard_user', 'secret_sauce'),

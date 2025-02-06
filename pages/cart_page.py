@@ -3,11 +3,10 @@ from lesson22.pages.base_page import BasePage
 
 
 class CartPage(BasePage):
-    BACKPACK_LINE = (By.ID, "remove-sauce-labs-backpack")
-    TSHIRT_LINE = (By.ID, "remove-sauce-labs-bolt-t-shirt")
+    ITEMS_IN_CART = (By.CLASS_NAME, 'cart_list')
 
-    def remove_backpack_line(self):
-        self.click_element(self. BACKPACK_LINE)
+    def count_products_in_cart(self):
+        return len(self.find_elements(self.ITEMS_IN_CART))
 
-    def remove_tshirt_line(self):
-        self.click_element(self. TSHIRT_LINE)
+    def return_product(self):
+        return self.find_elements(self.ITEMS_IN_CART)[0].find_element(By.CLASS_NAME, 'inventory_item_name').text
