@@ -7,7 +7,6 @@ class InventoryPage(BasePage):
     TSHIRT_BTN = (By.ID, "add-to-cart-sauce-labs-bolt-t-shirt")
     CART_ICON = (By.CLASS_NAME, "shopping_cart_link")
 
-
     def click_on_backpack_btn(self):
         self.click_element(self.BACKPACK_BTN)
 
