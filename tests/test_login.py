@@ -1,5 +1,4 @@
 import pytest
-
 from lesson22.pages.login_page import LoginPage
 
 @pytest.mark.parametrize(
