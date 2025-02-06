@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from pages.base_page import BasePage
+from lesson22.pages.base_page import BasePage
 
 
 class LoginPage(BasePage):
@@ -7,6 +7,9 @@ class LoginPage(BasePage):
     PASSWORD_INPUT = (By.ID, "password")
     LOGIN_BUTTON = (By.ID, "login-button")
     ERROR_MESSAGE = (By.CLASS_NAME, "error-message-container")
+
+    def get_login_page(self):
+        self.open_url("https://www.saucedemo.com/")
 
     def enter_username(self, username):
         self.enter_text(self.USERNAME_INPUT, username)
