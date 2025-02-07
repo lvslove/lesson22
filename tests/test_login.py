@@ -17,6 +17,7 @@ def test_valid_login(driver, name, password):
     login_page.enter_password(password)
     login_page.click_login()
 
+
     if name == 'locked_out_user':
         assert "https://www.saucedemo.com/" == driver.current_url, "Ошибка: логин удался"
     else:

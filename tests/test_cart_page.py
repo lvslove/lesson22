@@ -10,7 +10,6 @@ def test_cart_with_items(driver):
 
     assert "inventory" in driver.current_url, "Ошибка: логин не удался"
     inventory_page.move_to_cart()
-
     assert "cart" in driver.current_url, "Ошибка: не совершён переход в корзину"
 
     filled_cart = CartPage(driver)
