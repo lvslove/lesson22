@@ -1,8 +1,7 @@
-import pytest
-
 from lesson22.pages.checkout_page import CheckoutPage
 from lesson22.pages.login_page import LoginPage
 from lesson22.pages.inventory_page import InventoryPage
+
 
 def test_checkout(driver):
     login_page = LoginPage(driver)

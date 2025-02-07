@@ -1,8 +1,7 @@
-import pytest
-
 from lesson22.pages.login_page import LoginPage
 from lesson22.pages.inventory_page import InventoryPage
 from lesson22.pages.cart_page import CartPage
+
 
 def test_cart_with_items(driver):
     login_page = LoginPage(driver)
@@ -15,6 +14,7 @@ def test_cart_with_items(driver):
 
     assert "cart" in driver.current_url, "Ошибка: не совершён переход в корзину"
 
-    cart_with_items = CartPage(driver)
-    assert cart_with_items.count_products_in_basket() == 1
-    assert cart_with_items.return_product() == "Sauce Labs Backpack"
+    filled_cart = CartPage(driver)
+
+    assert filled_cart.count_products_in_cart() == 1
+    assert filled_cart.return_product() == "Sauce Labs Backpack"

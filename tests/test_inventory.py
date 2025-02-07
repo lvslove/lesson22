@@ -1,4 +1,3 @@
-import pytest
 from lesson22.pages.login_page import LoginPage
 from lesson22.pages.inventory_page import InventoryPage
 

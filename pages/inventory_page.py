@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from lesson22.pages.base_page import BasePage
 
+
 class InventoryPage(BasePage):
     BACKPACK_BTN = (By.ID, "add-to-cart-sauce-labs-backpack")
     CART_ICON = (By.CLASS_NAME, "shopping_cart_link")
