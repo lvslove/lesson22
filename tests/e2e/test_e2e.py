@@ -36,13 +36,13 @@ def test_end_to_end(driver):
     driver.find_element(By.CLASS_NAME, "checkout_button").click()
 
     # Заполнение данных для оформления
-    driver.find_element(By.ID, "first-name").send_keys("Vitaliy")
-    driver.find_element(By.ID, "last-name").send_keys("Popkov")
-    driver.find_element(By.ID, "postal-code").send_keys("220085")
-    driver.find_element(By.ID, "continue").click()
+    inventory_page.enter_text((By.ID, "first-name"), "Vitaliy")
+    inventory_page.enter_text((By.ID, "last-name"), "Popkov")
+    inventory_page.enter_text((By.ID, "postal-code"), "220085")
+    inventory_page.click_element((By.ID, "continue"))
 
     # Завершение оформления
-    driver.find_element(By.ID, "finish").click()
+    inventory_page.click_element((By.ID, "finish"))
 
 
     # Проверка, что сообщение о завершении заказа  отображается
