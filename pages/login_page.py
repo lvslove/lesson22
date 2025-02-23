@@ -19,3 +19,12 @@ class LoginPage(BasePage):
 
     def get_error_message(self):
         return self.find_element(self.ERROR_MESSAGE).text
+
+    def get_login_page(self):
+        return self.open_url("https://www.saucedemo.com/")
+
+    def valid_login(self, username, password):
+        self.get_login_page()
+        self.enter_text(self.USERNAME_INPUT, username)
+        self.enter_text(self.PASSWORD_INPUT, password)
+        self.click_element(self.LOGIN_BUTTON)
