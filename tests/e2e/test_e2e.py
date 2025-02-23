@@ -1,5 +1,4 @@
 import pytest
-from selenium.webdriver.common.by import By
 from pages.login_page import LoginPage
 from pages.inventory_page import InventoryPage
 
@@ -20,31 +19,16 @@ def test_end_to_end(driver):
     login_page.click_login()
 
     # Проверка успешного входа
-    app_logo = driver.find_element(By.CLASS_NAME, "app_logo")
-    assert "Swag Labs" in app_logo.text
+    login_page.verify_login_success()
 
-    #Добавление товара в корзину
+    # Добавление товара в корзину
     inventory_page.add_to_backpack_cart()
 
     # Проверка, что товар добавлен в корзину
     assert inventory_page.cart_count() == "1"
 
-    # Переход в корзину
-    driver.find_element(By.CLASS_NAME, "shopping_cart_link").click()
+    # Завершение оформления заказа
+    inventory_page.complete_checkout("Vitaliy", "Popkov", "220085")
 
-    # Начало оформления
-    driver.find_element(By.CLASS_NAME, "checkout_button").click()
-
-    # Заполнение данных для оформления
-    inventory_page.enter_text((By.ID, "first-name"), "Vitaliy")
-    inventory_page.enter_text((By.ID, "last-name"), "Popkov")
-    inventory_page.enter_text((By.ID, "postal-code"), "220085")
-    inventory_page.click_element((By.ID, "continue"))
-
-    # Завершение оформления
-    inventory_page.click_element((By.ID, "finish"))
-
-
-    # Проверка, что сообщение о завершении заказа  отображается
-    thank_you_message = driver.find_element(By.ID, "checkout_complete_container")
-    assert "Thank you for your order!" in thank_you_message.text
+    # Проверка, что сообщение о завершении заказа отображается
+    inventory_page.verify_thank_you_message()
